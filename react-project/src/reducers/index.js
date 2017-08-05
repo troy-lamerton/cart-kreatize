@@ -25,7 +25,7 @@ export const initialState = {
 function generateProductMeta () {
   return {
     added: Date.now(),
-    quantity: 0,
+    quantity: 1,
     comment: ""
   };
 }

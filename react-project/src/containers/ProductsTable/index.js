@@ -18,20 +18,21 @@ import FlatButton from 'material-ui/FlatButton';
 
 import './index.css';
 
+const headers = ['Name', 'Tax', 'Quantity', 'Remove'];  
+
 const ProductsTable = (props) => (
   <Table>
     <TableHeader
       displaySelectAll={false}
       adjustForCheckbox={false}
       selectable={false}>
-      {_.map(props.headers, (headerString, index) => <TableHeaderColumn key={index}>{headerString}</TableHeaderColumn>)}
+      {_.map(headers, (headerString, index) => <TableHeaderColumn key={index}>{headerString}</TableHeaderColumn>)}
     </TableHeader>
     <TableBody
       displayRowCheckbox={false}>
       {_.map(props.products, ({name, tax}, id) => (
         <TableRow key={id}>
           <TableRowColumn>{name}</TableRowColumn>
-          <TableRowColumn>{props.meta[id].comment}</TableRowColumn>
           <TableRowColumn><Percent value={tax} /></TableRowColumn>
           <TableRowColumn>{props.meta[id].quantity}</TableRowColumn>
           <TableRowColumn><FlatButton label="Remove" secondary onClick={() => props.removeProduct(id)}/></TableRowColumn>
@@ -42,7 +43,6 @@ const ProductsTable = (props) => (
 );
 
 ProductsTable.propTypes = {
-  headers: PropTypes.arrayOf(PropTypes.string).isRequired,
   products: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired
 }

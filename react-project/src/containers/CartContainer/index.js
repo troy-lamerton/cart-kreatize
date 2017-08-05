@@ -18,7 +18,7 @@ class CartContainer extends Component {
         <div>
           <p>The cart is below</p>
           <h3>Products</h3>
-          <ProductsTable headers={['Name', 'Comment', 'Tax', 'Quantity', 'Remove']} />
+          <ProductsTable />
         </div>
         {/*render a +button for each possible product, if it is not in the cart*/}
         <div className="flex-list">
