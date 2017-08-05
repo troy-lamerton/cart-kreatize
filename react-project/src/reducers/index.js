@@ -45,6 +45,7 @@ export function cartReducer(state = initialState, action) {
     case types.REMOVE_PRODUCT:
       console.info('cartReducer: Remove product', action);
       return state;
+
     default:
       return state;
   }
