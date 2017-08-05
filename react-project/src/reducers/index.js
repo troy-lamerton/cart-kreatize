@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import * as types from '../types';
 import db from '../products.json';
 
@@ -29,22 +31,32 @@ function generateProductMeta () {
 }
 
 export function cartReducer(state = initialState, action) {
+  const id = action.payload;
+  let cart = state.cart;
+  let products;
+  let meta;
+
   switch (action.type) {
     case types.ADD_PRODUCT:
       console.info('cartReducer: Add product', action);
       // assumes product is not in cart already
       // action.payload = "<product-id>"
-      const id = action.payload;
 
-      let cart = state.cart;
-      const products = Object.assign({}, cart.products, {[id]: db[id]});
-      const meta = Object.assign({}, cart.meta, {[id]: generateProductMeta()});
-      cart = Object.assign({}, cart, { products, meta });
+      products = _.assign({}, cart.products, {[id]: db[id]});
+      meta = _.assign({}, cart.meta, {[id]: generateProductMeta()});
+      cart = _.assign({}, cart, { products, meta });
       return { cart };
 
     case types.REMOVE_PRODUCT:
       console.info('cartReducer: Remove product', action);
-      return state;
+      // assumes product is in the cart
+      // action.payload = "<product-id>"
+
+      // create new object omitting product to be removed
+      products = _.omitBy(cart.products, (value, key) => key === id);
+      meta = _.omitBy(cart.meta, (value, key) => key === id);
+      cart = _.assign({}, cart, { products, meta });
+      return { cart };
 
     default:
       return state;
