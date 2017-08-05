@@ -9,6 +9,7 @@
             |Header|
             .map(..) --> |Row|, |Row|, |Row|
               |Row - contains: |Button ++ quantity| |Button -- quantity| |Button delete item| |
+        | Totals calculated |
         | Add product buttons |
 
 ```
