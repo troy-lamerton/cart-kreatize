@@ -1,7 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## dev planning
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+### component structure:
+```
+|store ->
+|App
+    | Cart |
+        | >Table |
+            |Header|
+            .map(..) --> |Row|, |Row|, |Row|
+              |Row - contains: |Button ++ quantity| |Button -- quantity| |Button delete item| |
+        | Meta buttons |
+
+```
+### store structure:
+```javascript
+store = {
+  cart: {
+    products: {
+      "<product-id>": {
+        name: "string",
+        price: 1.00,
+        tax: 0.07 || 0.19
+      },
+    },
+    meta: {
+      "<product-id>": {
+        added: new Date(),
+        quantity: 0,
+        comment: "editable string"
+      }
+    }
+  }
+}
+```
+
+### json 'database' structure:
+
+```javascript
+products = {
+  "<product-id>": {
+    name: "string",
+    price: 1.00,
+    tax: 0.07 || 0.19
+  },
+  "ah7Y39": {
+    name: "Football",
+    price: 3.50,
+    tax: 0.07
+  }
+}
+```
+
 
 ## Table of Contents
 
