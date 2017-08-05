@@ -38,7 +38,7 @@ export function cartReducer(state = initialState, action) {
 
       let cart = state.cart;
       const products = Object.assign({}, cart.products, {[id]: db[id]});
-      const meta = Object.assign({}, cart.products, {[id]: generateProductMeta()});
+      const meta = Object.assign({}, cart.meta, {[id]: generateProductMeta()});
       cart = Object.assign({}, cart, { products, meta });
       return { cart };
 

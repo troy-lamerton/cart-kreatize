@@ -9,7 +9,7 @@
             |Header|
             .map(..) --> |Row|, |Row|, |Row|
               |Row - contains: |Button ++ quantity| |Button -- quantity| |Button delete item| |
-        | Meta buttons |
+        | Add product buttons |
 
 ```
 ### store structure:

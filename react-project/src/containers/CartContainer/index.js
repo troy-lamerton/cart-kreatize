@@ -6,9 +6,7 @@ import _ from 'lodash';
 import db from '../../products.json';
 import { addProduct } from '../../actions';
 
-import ProductsTable from '../../components/ProductsTable';
-import ProductsTableRows from '../ProductsTableRows';
-
+import ProductsTable from '../ProductsTable';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import './index.css';
@@ -19,14 +17,8 @@ class CartContainer extends Component {
       <div>
         <div>
           <p>The cart is below</p>
-          <p>Products table</p>
-          <ProductsTable headers={['Name', 'Comment', 'Quantity', 'Remove']}>
-            <ProductsTableRows />
-          </ProductsTable>
-          {JSON.stringify(this.props.products)}
-          <p>Meta</p>
-          {JSON.stringify(this.props.meta)}
-          <hr />
+          <h3>Products</h3>
+          <ProductsTable headers={['Name', 'Comment', 'Quantity', 'Remove']} />
         </div>
         {/*render a +button for each possible product, if it is not in the cart*/}
         <div className="flex-list">
