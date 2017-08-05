@@ -8,5 +8,10 @@
     "name": "Boots",
     "price": 12.00,
     "tax": 0.19
+  },
+  "puD93f": {
+    "name": "Pump",
+    "price": 6.00,
+    "tax": 0.19
   }
 }

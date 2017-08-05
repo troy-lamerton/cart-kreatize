@@ -13,6 +13,7 @@ import {
   TableRow,
   TableRowColumn
 } from 'material-ui/Table';
+import Percent from '../../components/Percent';
 import FlatButton from 'material-ui/FlatButton';
 
 import './index.css';
@@ -27,10 +28,11 @@ const ProductsTable = (props) => (
     </TableHeader>
     <TableBody
       displayRowCheckbox={false}>
-      {_.map(props.products, ({name}, id) => (
+      {_.map(props.products, ({name, tax}, id) => (
         <TableRow key={id}>
           <TableRowColumn>{name}</TableRowColumn>
           <TableRowColumn>{props.meta[id].comment}</TableRowColumn>
+          <TableRowColumn><Percent value={tax} /></TableRowColumn>
           <TableRowColumn>{props.meta[id].quantity}</TableRowColumn>
           <TableRowColumn><FlatButton label="Remove" secondary onClick={() => props.removeProduct(id)}/></TableRowColumn>
         </TableRow>
