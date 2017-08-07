@@ -5,20 +5,8 @@ import db from '../products.json';
 
 export const initialState = {
   cart: {
-    products: {
-      /*"<product-id>": {
-        name: "string",
-        price: 1.00,
-        tax: 0.07 || 0.19
-      },*/
-    },
-    meta: {
-      /*"<product-id>": {
-        added: new Date(),
-        quantity: 0,
-        comment: "editable string"
-      }*/
-    }
+    products: {},
+    meta: {}
   }
 };
 
@@ -31,6 +19,7 @@ function generateProductMeta () {
 }
 
 export function cartReducer(state = initialState, action = {}) {
+  // action.payload = "<product-id>"
   const id = action.payload;
   let cart = state.cart;
   let products;
@@ -40,7 +29,6 @@ export function cartReducer(state = initialState, action = {}) {
     case types.ADD_PRODUCT:
       console.info('cartReducer: Add product', action);
       // assumes product is not in cart already
-      // action.payload = "<product-id>"
       const newProduct = _.cloneDeep(db[id]); // product object must be a fresh js object
       products = _.assign({}, cart.products, {[id]: newProduct});
       meta = _.assign({}, cart.meta, {[id]: generateProductMeta()});
@@ -50,7 +38,6 @@ export function cartReducer(state = initialState, action = {}) {
     case types.REMOVE_PRODUCT:
       console.info('cartReducer: Remove product', action);
       // assumes product is in the cart
-      // action.payload = "<product-id>"
 
       // create new object omitting product to be removed
       products = _.omitBy(cart.products, (value, key) => key === id);
