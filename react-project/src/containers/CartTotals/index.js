@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import Percent from '../../components/Percent';
+import { Euro } from '../../components/NumberFormat';
 
 import './index.css';
 

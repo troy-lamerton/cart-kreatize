@@ -13,12 +13,12 @@ import {
   TableRow,
   TableRowColumn
 } from 'material-ui/Table';
-import Percent from '../../components/Percent';
+import { Percent, Euro } from '../../components/NumberFormat';
 import FlatButton from 'material-ui/FlatButton';
 
 import './index.css';
 
-const headers = ['Name', 'Tax', 'Quantity', 'Remove'];  
+const headers = ['Name', 'Price', 'Tax', 'Quantity', 'Remove'];  
 
 const ProductsTable = (props) => (
   <Table>
@@ -26,13 +26,16 @@ const ProductsTable = (props) => (
       displaySelectAll={false}
       adjustForCheckbox={false}
       selectable={false}>
-      {_.map(headers, (headerString, index) => <TableHeaderColumn key={index}>{headerString}</TableHeaderColumn>)}
+      <TableRow>
+        {_.map(headers, (headerString, index) => <TableHeaderColumn key={index}>{headerString}</TableHeaderColumn>)}
+      </TableRow>
     </TableHeader>
     <TableBody
       displayRowCheckbox={false}>
-      {_.map(props.products, ({name, tax}, id) => (
+      {_.map(props.products, ({name, tax, price}, id) => (
         <TableRow key={id}>
           <TableRowColumn>{name}</TableRowColumn>
+          <TableRowColumn><Euro value={price} /></TableRowColumn>
           <TableRowColumn><Percent value={tax} /></TableRowColumn>
           <TableRowColumn>{props.meta[id].quantity}</TableRowColumn>
           <TableRowColumn><FlatButton label="Remove" secondary onClick={() => props.removeProduct(id)}/></TableRowColumn>
