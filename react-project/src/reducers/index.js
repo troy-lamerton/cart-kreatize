@@ -41,8 +41,8 @@ export function cartReducer(state = initialState, action = {}) {
       console.info('cartReducer: Add product', action);
       // assumes product is not in cart already
       // action.payload = "<product-id>"
-
-      products = _.assign({}, cart.products, {[id]: db[id]});
+      const newProduct = _.cloneDeep(db[id]); // product object must be a fresh js object
+      products = _.assign({}, cart.products, {[id]: newProduct});
       meta = _.assign({}, cart.meta, {[id]: generateProductMeta()});
       cart = _.assign({}, cart, { products, meta });
       return { cart };
