@@ -14,8 +14,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rimraf ./build && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "upload": "surge --project ./build --domain cartk.surge.sh",
+    "deploy": "npm run build && npm run upload"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "surge": "^0.19.0"
   }
 }
