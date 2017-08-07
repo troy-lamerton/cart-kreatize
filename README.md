@@ -1,5 +1,7 @@
 # cart-kreatize
 
+## brief
+
 Aim for these functions and feel free to include your own ideas:
 * add product to table
 * remove product from table
