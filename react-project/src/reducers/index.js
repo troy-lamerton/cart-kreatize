@@ -30,7 +30,7 @@ function generateProductMeta () {
   };
 }
 
-export function cartReducer(state = initialState, action) {
+export function cartReducer(state = initialState, action = {}) {
   const id = action.payload;
   let cart = state.cart;
   let products;
