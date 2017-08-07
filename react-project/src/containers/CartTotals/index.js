@@ -5,7 +5,6 @@ import _ from 'lodash';
 
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import { Euro } from '../../components/NumberFormat';
 
 import './index.css';
 
