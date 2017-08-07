@@ -17,7 +17,7 @@
     "build": "rimraf ./build && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "upload": "surge --project ./build --domain cartk.surge.sh",
+    "upload": "surge --project ./build --domain https://cartk.surge.sh",
     "deploy": "npm run build && npm run upload"
   },
   "devDependencies": {
